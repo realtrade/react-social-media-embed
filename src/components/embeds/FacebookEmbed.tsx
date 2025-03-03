@@ -28,6 +28,7 @@ export interface FacebookEmbedProps extends DivProps {
   width?: string | number;
   height?: string | number;
   linkText?: string;
+  showPostText?: boolean;
   placeholderImageUrl?: string;
   placeholderSpinner?: React.ReactNode;
   placeholderSpinnerDisabled?: boolean;
@@ -46,6 +47,7 @@ export const FacebookEmbed = ({
   width,
   height,
   linkText = 'View post on Facebook',
+  showPostText = true,
   placeholderImageUrl,
   placeholderSpinner,
   placeholderSpinnerDisabled = false,
@@ -213,6 +215,7 @@ export const FacebookEmbed = ({
           className="fb-post"
           data-href={url}
           data-width={isPercentageWidth ? '100%' : width ?? defaultEmbedWidth}
+          data-show-text={showPostText ? 'true' : 'false'}
           style={{
             width: isPercentageWidth ? '100%' : width ?? defaultEmbedWidth,
             height: isPercentageHeight ? '100%' : height ?? undefined,
